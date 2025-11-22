@@ -3,7 +3,7 @@
 
 NOTE_DIR="$HOME/local_ai_assistant/notes/reflections"
 ARCHIVE="$HOME/local_ai_assistant/notes/reflections_archive.txt"
-JOURNAL="$HOME/local_ai_assistant/journal_$(date +%Y).txt"
+JOURNAL="$HOME/local_ai_assistant/notes/journal_$(date +%Y).txt"
 mkdir -p "$NOTE_DIR"
 
 NOTE_FILE="$NOTE_DIR/$(date +%Y-%m-%d).txt"
