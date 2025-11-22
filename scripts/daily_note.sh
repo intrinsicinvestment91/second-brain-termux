@@ -21,7 +21,14 @@ CWD=$(pwd)
 } > "$NOTE_FILE"
 
 echo "One-word mood (e.g. calm, drained, electric): "
-read MOOD
+read MOOD_INPUT
+
+MOOD=$(echo "$MOOD_INPUT" | awk '{print $1}')  # Trim to first word
+
+if [ "$MOOD" != "$MOOD_INPUT" ]; then
+  echo "Note: Trimmed mood to first word '$MOOD' for consistency."
+fi
+
 echo "Mood: $MOOD" >> "$NOTE_FILE"
 echo "" >> "$NOTE_FILE"
 
