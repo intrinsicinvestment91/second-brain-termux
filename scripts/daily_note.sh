@@ -20,6 +20,10 @@ CWD=$(pwd)
   echo ""
 } > "$NOTE_FILE"
 
+echo "Optional weather/context (e.g., rainy 15C, or skip with Enter): "
+read WEATHER
+echo "Weather/context: $WEATHER" >> "$NOTE_FILE"
+
 echo "One-word mood (e.g. calm, drained, electric): "
 read MOOD_INPUT
 
@@ -36,7 +40,7 @@ echo "Quick reflection (write freely, press Enter then Ctrl-D when done):"
 cat >> "$NOTE_FILE"
 
 # One-line archive (for LLM training)
-echo "$(date +%Y-%m-%d) | $MOOD | $(tail -n +7 "$NOTE_FILE" | tr '\n' ' ' | sed 's/ $//')" >> "$ARCHIVE"
+echo "$(date +%Y-%m-%d) | $MOOD | $WEATHER | $(tail -n +7 "$NOTE_FILE" | tr '\n' ' ' | sed 's/ $//')" >> "$ARCHIVE"
 
 # Yearly journal
 cat "$NOTE_FILE" >> "$JOURNAL"
